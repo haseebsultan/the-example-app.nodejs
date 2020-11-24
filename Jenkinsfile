@@ -19,7 +19,6 @@ stages {
            -Dsonar.css.node=. \
            -Dsonar.host.url=http://52.203.65.180:9000 \
            -Dsonar.login=abb8bd0edcabbc6c389c83db64cc2819268e9a0f"
-            waitForQualityGate abortPipeline: true
            
                }
            }
