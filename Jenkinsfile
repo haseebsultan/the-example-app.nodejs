@@ -24,11 +24,13 @@ stages {
            }
        }
    }
- stage('Quality Gate'){
-          steps {
-             
+ stage("Quality Gate") {
+            steps {
+              timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
           }
-      }
  stage("Install Project Dependencies") {
    steps {
        nodejs(nodeJSInstallationName: 'NodeJS'){
