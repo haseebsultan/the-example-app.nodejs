@@ -18,10 +18,9 @@ module.exports.initClients = (options) => {
   const applicationName = `the-example-app.nodejs/${version}`
 
   const config = options || {
-    spaceId: process.env.CONTENTFUL_SPACE_ID,
-    deliveryToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
-    previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN
-  }
+    spaceId: process.env_ID,
+    deliveryToken: processEN
+  
   deliveryClient = createClient({
     application: applicationName,
     space: config.spaceId,
@@ -30,7 +29,7 @@ module.exports.initClients = (options) => {
     // You can just omit the host since it defaults to 'cdn.contentful.com'
     host: process.env.CONTENTFUL_DELIVERY_API_HOST,
     removeUnresolved: true
-  })
+  
   previewClient = createClient({
     application: applicationName,
     space: config.spaceId,
