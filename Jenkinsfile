@@ -28,7 +28,7 @@ stages {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
                     script  {
-                        def qg = waitForQualityGate()
+                        def qg = waitForQualityGate true
                         
                     }
                 }
