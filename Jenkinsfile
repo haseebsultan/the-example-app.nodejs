@@ -22,12 +22,16 @@ stages {
            
                }
            }
-    def qualitygate = waitForQualityGate()
-      if (qualitygate.status != "OK") {
-         error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
-      }
        }
    }
+
+stage("Quality Gate") {
+            steps {
+              timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
+          }
 stage("Install Project Dependencies") {
    steps {
        nodejs(nodeJSInstallationName: 'NodeJS'){
