@@ -26,7 +26,7 @@ stages {
    }
  stage("Quality Gate"){
   steps{
-    {
+    
           timeout(time: 1, unit: 'HOURS') {
               def qg = waitForQualityGate()
               echo qg.status
@@ -34,7 +34,7 @@ stages {
                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
               }
           }
-   }
+   
   }
       }
  stage("Install Project Dependencies") {
