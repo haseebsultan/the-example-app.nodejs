@@ -26,7 +26,7 @@ stages {
    }
  stage('Quality Gate'){
           steps {
-             waitForQualityGate abortPipeline: true
+             
           }
       }
  stage("Install Project Dependencies") {
