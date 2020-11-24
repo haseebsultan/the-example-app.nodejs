@@ -27,7 +27,8 @@ stages {
  stage("Quality Gate"){
   steps{
     
-          timeout(time: 1, unit: 'HOURS') {
+          //timeout(time: 1, unit: 'HOURS') 
+  script {
               def qg = waitForQualityGate()
               echo qg.status
               if (qg.status != 'OK') {
@@ -37,12 +38,6 @@ stages {
    
   }
       }
- stage("Install Project Dependencies") {
-   steps {
-       nodejs(nodeJSInstallationName: 'NodeJS'){
-           sh "npm install"
-           }
-       }
-   }
+ 
 }
 }
