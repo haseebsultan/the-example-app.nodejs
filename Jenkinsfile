@@ -1,5 +1,6 @@
 pipeline {
 agent any
+tools {nodejs "NodeJS"} 
 stages {
  stage("Code Checkout from GitLab") {
   steps {
@@ -23,6 +24,12 @@ stages {
            }
        }
    }
- 
+ stage("Install Project Dependencies") {
+   steps {
+       nodejs(nodeJSInstallationName: 'NodeJS'){
+           sh "npm install"
+           }
+       }
+   }
 }
 }
